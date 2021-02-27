@@ -1,37 +1,30 @@
+div.container {
+  max-width: 600px;
+  margin: 30px auto;
+  font-family: "Rubik", sans-serif;
+  position: static;
+}
 div.card {
   border-color: #42a5f5;
   border-width: 4px;
   border-radius: 1%;
-  width: 60%;
-  margin-left: 20px;
-  font-family: "Rubik", sans-serif;
-  position: static;
-}
-h2,
-h3 {
-  margin-left: 20px;
 }
 
-h1.home-page {
+h1.most-popular-cities {
   color: #596aca;
   font-size: 20px;
-  margin-left: 15px;
+  margin-left: 10px;
+}
+p.link-most-popular-cities {
+  margin-left: 8px;
 }
 a {
   text-decoration: none;
-  margin-left: 15px;
-}
-div.city-form {
-  color: #999fae;
-  font-size: 15px;
-  margin-left: 15px;
-  margin-top: 10px;
-}
-div.container-fluid {
-  background-color: white;
 }
 nav.bg-light {
   background-color: white !important;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 input.form-control.me-2 {
   padding-top: 0.1em;
@@ -41,12 +34,13 @@ input.form-control.me-2 {
 }
 h2.main-city {
   color: #fb916f;
-  margin-left: 15px;
+  margin-left: 10px;
+  margin-bottom: 0;
 }
 h3.date {
   color: #fca727;
   font-size: 23px;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 p.forecast {
   color: #999fae;
