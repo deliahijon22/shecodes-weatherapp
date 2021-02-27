@@ -18,7 +18,7 @@
     <h1 class="most-popular-cities">
       Most Popuplar cities 
     </h1>
-    <p class="link-most-popular-cities"><a href="">New York</a> <a href="">Berlin</a> <a href="">London</a> <a href="">Paris</a> <a href="">Madrid</a></p>
+    <p class="link-most-popular-cities" id="popular-city"><a id="popular-city-newyork" href="">New York</a> <a id="popular-city-berlin"href="">Berlin</a> <a id="popular-city-london" href="">London</a> <a id="popular-city-paris" href="">Paris</a> <a id="popular-city-madrid" href="">Madrid</a></p>
    
 <nav class="navbar navbar-light bg-light">
         <form class="d-flex" id="search-engine">
@@ -35,7 +35,7 @@
 </h3>
     <div class="row">
         <div class="col-6">
-            <p class="forecast">
+            <p class="forecast" id="forecast">
             Cloudy
             </p>
 
@@ -48,9 +48,8 @@
         </div>
         <div class="col-6">
             <ul class="precipitation">
-                <li>Precipitation: 2%</li>
-                <li>Humidity: 77%</li>
-                <li>Wind: 8km/h</li>
+                <li>Humidity: <span id="humidity">77</span></span>%</li>
+                <li>Wind: <span id="windy"></span>8</span>km/h</li>
             </ul>
         </div>
     </div>

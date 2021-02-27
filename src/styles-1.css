@@ -44,6 +44,7 @@ h3.date {
 }
 p.forecast {
   color: #999fae;
+  text-transform: capitalize;
   font-size: 20px;
   margin-left: 15px;
 }
@@ -53,7 +54,7 @@ span.icon-and-forecast {
 }
 span.units {
   font-size: 20px;
-  margin-left: -15px;
+  margin-left: 0;
 }
 ul {
   list-style-type: none;
