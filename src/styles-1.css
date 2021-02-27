@@ -44,12 +44,16 @@ h3.date {
 }
 p.forecast {
   color: #999fae;
-  font-size: 23px;
+  font-size: 20px;
   margin-left: 15px;
 }
 span.icon-and-forecast {
   font-size: 50px;
   margin-left: 15px;
+}
+span.units {
+  font-size: 20px;
+  margin-left: -15px;
 }
 ul {
   list-style-type: none;
@@ -58,18 +62,18 @@ div.row {
   margin-top: 20px;
 }
 ul.precipitation {
-  font-size: 23px;
+  font-size: 20px;
   color: #999fae;
   margin-left: -25px;
 }
 ul.week-day {
-  font-size: 23px;
+  font-size: 20px;
   color: #999fae;
   margin-left: -10px;
 }
 
 li.temperature {
-  font-size: 20px;
+  font-size: 18px;
   color: #999fae;
 }
 .units {
