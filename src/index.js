@@ -35,11 +35,13 @@
   let forecastElement = document.querySelector("#forecast");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector ("#windy");
+  let iconElement = document.querySelector("#icon");
   document.querySelector("#main-city").innerHTML = currentCity;
   temperatureValue.innerHTML = tempratureApi;
   forecastElement.innerHTML= response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  iconElement.setAttribute ("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
  }
  
  function cityWeather(event) {
