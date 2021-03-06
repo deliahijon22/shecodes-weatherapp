@@ -27,15 +27,17 @@
  let dateElement = document.querySelector("#date");
  dateElement.innerHTML = formatDate(currentDate);
  
+ //Function to show the temperature 
 
  function showTemperature(response){
   let temperatureValue = document.querySelector("#temperature"); 
-  let tempratureApi = Math.round(response.data.main.temp);
+  let tempratureApi = Math.round(celciusDegrees);
   let currentCity = response.data.name;
   let forecastElement = document.querySelector("#forecast");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector ("#windy");
   let iconElement = document.querySelector("#icon");
+  celciusDegrees = (response.data.main.temp)
   document.querySelector("#main-city").innerHTML = currentCity;
   temperatureValue.innerHTML = tempratureApi;
   forecastElement.innerHTML= response.data.weather[0].description;
@@ -43,7 +45,9 @@
   windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute ("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
  }
- 
+
+ //Function to show the city 
+
  function cityWeather(event) {
    event.preventDefault();
    let apiKey = "33591efff15ea7a06a20f804dfa7d7d9";
@@ -53,6 +57,8 @@
    displayedCity.innerHTML = cityValue.value;
   axios.get(apiUrl).then(showTemperature);
  }
+ //functions most porpular cities link
+
  function popularCityNewyork(event){
    event.preventDefault();
    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=new%20york&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
@@ -78,6 +84,9 @@
    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=madrid&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
    axios.get(apiUrl).then(showTemperature);
  }
+
+ // function searchposition and currentlocaltion 
+
  function searchPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -94,6 +103,9 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
  let searchBar  = document.querySelector("#search-engine");
  searchBar.addEventListener("submit", cityWeather);
+
+ //MostpopularcitiesLink Variables
+
  let linkMostPopularCitiesNy = document.querySelector("#popular-city-newyork");
  linkMostPopularCitiesNy.addEventListener("click",popularCityNewyork);
  let linkMostPopularCitiesBerlin = document.querySelector("#popular-city-berlin");
@@ -109,22 +121,24 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
  //let CurrentdisplayedCity = document.querySelector("#main-city");
   //CurrentdisplayedCity.innerHTML = currentCity;
 
- //function farenheitConversion(event){
-    //event.preventDefault();
-  //let farenheitValue = document.querySelector("#temperature")
-  //farenheitValue.innerHTML = "⛅️ 30.2";
- //}
+//Temperature conversion functions and variables 
+function farenheitConversion(event){
+ event.preventDefault();
+let temperatureElement = document.querySelector("#temperature");
+let farenheitTemperature = (celciusDegrees*9)/5+32;
+temperatureElement.innerHTML = Math.round(farenheitTemperature);
+ }
+ function celciusConversion(event){
+ event.preventDefault();
+ let celciusElement = document.querySelector("#temperature")
+ celciusElement.innerHTML = Math.round(celciusDegrees);
+}
+let celciusDegrees = null;
 
- //function celciusConversion(event){
-  //event.preventDefault();
-  //let celciusValue = document.querySelector("#temperature")
-  //celciusValue.innerHTML = "⛅️ -1";
-//}
- 
- //let farenheitDegrees = document.querySelector("#fahrenheit-link");
- //farenheitDegrees.addEventListener("click",farenheitConversion);
-//let celciusDegrees = document.querySelector("#celsius-link");
- //celciusDegrees.addEventListener("click",celciusConversion);
+let farenheitDegrees = document.querySelector("#fahrenheit-link");
+ farenheitDegrees.addEventListener("click",farenheitConversion);
+let celciusValue = document.querySelector("#celsius-link");
+celciusValue.addEventListener("click",celciusConversion);
 
 
 
