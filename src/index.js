@@ -1,5 +1,5 @@
  
-
+// Functions to format dat and time
 
 function formatDate (timestamp){
 let date = new Date (timestamp);
@@ -29,7 +29,7 @@ let date = new Date (timestamp);
   return `${hour}:${minutes}` 
  }
 
- //Function to show the temperature 
+ //Function to show the temperature, wind and humidity for city submitted or current location.
 
  function showTemperature(response){
   let dateElement = document.querySelector("#date");
@@ -49,6 +49,8 @@ let date = new Date (timestamp);
   windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute ("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
  }
+
+// Funtion to display forcast every 3 hours
 
  function displayForecast(response){
    let forecastHours = document.querySelector("#hours");
@@ -76,6 +78,7 @@ let date = new Date (timestamp);
    
    
  }
+// Function for default city 
 
  function search(city) {
   let apiKey = "33591efff15ea7a06a20f804dfa7d7d9";
@@ -106,26 +109,36 @@ let date = new Date (timestamp);
    event.preventDefault();
    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=new%20york&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
    axios.get(apiUrl).then(showTemperature);
+   apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=new%20york&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
+  axios.get(apiUrl).then(displayForecast);
  }
  function popularCityBerlin(event){
    event.preventDefault();
    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=berlin&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
    axios.get(apiUrl).then(showTemperature);
+   apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=berlin&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
+  axios.get(apiUrl).then(displayForecast);
  }
  function popularCityLondon(event){
    event.preventDefault();
    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=london&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
    axios.get(apiUrl).then(showTemperature);
+   apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=london&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
+  axios.get(apiUrl).then(displayForecast);
  }
  function popularCityParis(event){
    event.preventDefault();
    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=paris&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
    axios.get(apiUrl).then(showTemperature);
+   apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=paris&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
+  axios.get(apiUrl).then(displayForecast);
  }
   function popularCityMadrid(event){
    event.preventDefault();
    let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=madrid&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
    axios.get(apiUrl).then(showTemperature);
+   apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=madrid&units=metric&appid=33591efff15ea7a06a20f804dfa7d7d9";
+  axios.get(apiUrl).then(displayForecast);
  }
 
  // function searchposition and currentlocaltion 
@@ -159,10 +172,6 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
  linkMostPopularCitiesParis.addEventListener("click",popularCityParis);
  let linkMostPopularCitiesMadrid = document.querySelector("#popular-city-madrid");
  linkMostPopularCitiesMadrid.addEventListener("click",popularCityMadrid);
-//let currentCity = position.type.name;
-  
- //let CurrentdisplayedCity = document.querySelector("#main-city");
-  //CurrentdisplayedCity.innerHTML = currentCity;
 
 //Temperature conversion functions and variables 
 function farenheitConversion(event){
