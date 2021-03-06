@@ -144,11 +144,15 @@ let date = new Date (timestamp);
  // function searchposition and currentlocaltion 
 
  function searchPosition(position) {
+   
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "33591efff15ea7a06a20f804dfa7d7d9";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
    axios.get(apiUrl).then(showTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
  }
  function getCurrentLocation(event){
      event.preventDefault();
