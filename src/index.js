@@ -34,6 +34,7 @@ let date = new Date (timestamp);
  function showTemperature(response){
   let dateElement = document.querySelector("#date");
   let temperatureValue = document.querySelector("#temperature"); 
+  celciusDegrees = (response.data.main.temp);
   let tempratureApi = Math.round(celciusDegrees);
   let currentCity = response.data.name;
   let forecastElement = document.querySelector("#forecast");
@@ -41,7 +42,6 @@ let date = new Date (timestamp);
   let windElement = document.querySelector ("#windy");
   let iconElement = document.querySelector("#icon");
   dateElement.innerHTML = formatDate(response.data.dt *1000);
-  celciusDegrees = (response.data.main.temp)
   document.querySelector("#main-city").innerHTML = currentCity;
   temperatureValue.innerHTML = tempratureApi;
   forecastElement.innerHTML= response.data.weather[0].description;
